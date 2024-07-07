@@ -6,6 +6,8 @@ default: all
 
 build:
 	mkdir -p $@
+build/obj: | build
+	mkdir -p $@
 
 build/obj/%.o: src/%.c $(HEADERS) | build/obj
 	gcc -Wall -Iinclude -fPIC -g -O2 -c $< -o $@
