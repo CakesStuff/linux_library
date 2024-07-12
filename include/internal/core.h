@@ -19,6 +19,7 @@
 #define VECTOR_POP(vector) ((vector).arr[--(vector).size])
 #define VECTOR_POPF(vector) ((vector).arr[0]); memmove(&(vector).arr[0], &(vector).arr[1], --(vector).size * sizeof((vector).arr[0]))
 #define VECTOR_REMOVE(vector, index) do { (vector).arr[index] = (vector).arr[(vector).size - 1]; (vector).size--; } while(0)
+#define VECTOR_COPY(dst, src) do { (dst).cap = (src).cap; (dst).size = (src).size; (dst).arr = malloc((dst).cap * sizeof((dst).arr[0])); memcpy((dst).arr, (src).arr, (dst).size * sizeof((dst).arr[0])); } while(0)
 
 typedef uint8_t byte;
 
